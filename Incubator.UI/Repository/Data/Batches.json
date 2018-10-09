@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "Batch 42",
+    "Program": {
+      "Name": "Test",
+      "Description": "Program for testing incubator",
+      "Steps": [
+        {
+          "Name": "Setup",
+          "Duration": "00.00:05:00",
+          "Temperature": 37.8,
+          "Humidity": 60.0,
+          "Steps": null,
+          "Repeats": 0
+        }
+      ]
+    },
+    "Events": [
+      {
+        "Timestamp": "2018-10-09T13:58:18.0102482+02:00",
+        "Description": "Created"
+      }
+    ],
+    "State": 0
+  },
+  {
+    "Name": "Spring Batch",
+    "Program": {
+      "Name": "Chicken",
+      "Description": "Program for hatching chickens",
+      "Steps": [
+        {
+          "Name": "Incubating",
+          "Duration": "18.00:00:00",
+          "Temperature": 37.8,
+          "Humidity": 60.0,
+          "Steps": null,
+          "Repeats": 0
+        },
+        {
+          "Name": "Hatching",
+          "Duration": "05.00:00:00",
+          "Temperature": 37.8,
+          "Humidity": 80.0,
+          "Steps": null,
+          "Repeats":  0
+        }
+      ]
+    },
+    "Events": [
+      {
+        "Timestamp": "2018-10-09T13:58:18.0102482+02:00",
+        "Description": "Created"
+      }
+    ],
+    "State": 0
+  }
+]
