@@ -9,22 +9,21 @@ using System.Threading.Tasks;
 
 namespace Incubator.UI.ViewModel
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private readonly IBatchRepository _batchRepository;
 
-        public Batch CurrentBatch => _batchRepository.GetCurrent();
+        public Batch CurrentBatch
+        {
+            get
+            {
+                return _batchRepository.GetCurrent();
+            }
+        }
 
         public MainViewModel(IBatchRepository batchRepository)
         {
             _batchRepository = batchRepository;
-
-            var batches = _batchRepository.GetAll();
-
         }
-
-
     }
 }

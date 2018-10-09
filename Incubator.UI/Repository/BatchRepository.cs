@@ -4,16 +4,27 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Incubator.UI.Repository
 {
     public class BatchRepository : IBatchRepository
     {
+        private IEnumerable<Batch> _data;
+
+        public BatchRepository()
+        {
+            using (FileStream file = new FileStream(@".\Repository\Data\Batches.json", FileMode.Open))
+            {
+                StreamReader reader = new StreamReader(file);
+                var jsonStr = reader.ReadToEnd();
+                _data = JsonConvert.DeserializeObject<IEnumerable<Batch>>(jsonStr);
+            }            
+        }
+
+
         public void Add(Batch batch)
         {
-            var jsonBatch = JsonConvert.SerializeObject(batch);
-
-
             throw new NotImplementedException();
         }
 
@@ -24,50 +35,17 @@ namespace Incubator.UI.Repository
 
         public IEnumerable<Batch> GetAll()
         {
-            using (FileStream file = new FileStream(@"C:\Users\LANY\Source\Repos\incubator\Incubator.UI\Repository\Data\Batches.json", FileMode.Open))
-            {
-                StreamReader reader = new StreamReader(file);
-                var jsonStr = reader.ReadToEnd();
-                var batches = JsonConvert.DeserializeObject<IEnumerable<Batch>>(jsonStr);
-            }
-
-            throw new NotImplementedException();
+            return _data;
         }
 
         public Batch GetById(int id)
         {
-            throw new NotImplementedException();
+            return _data.Where(b => b.Id == id).SingleOrDefault();
         }
 
         public Batch GetCurrent()
         {
-            var batch = new Batch()
-            {
-                Name = "Batch 42",
-                Program = new Program
-                {
-                    Name = "Test",
-                    Description = "Program for testing incubator",
-                    Steps = new List<Step> {
-                        new Step {
-                            Name = "Setup",
-                            Temperature = 37.8,
-                            Humidity = 60,
-                            Duration = new TimeSpan(21, 0, 0, 0)
-                        }
-                    }
-                },
-                Events = new List<Event> {
-                    new Event {
-                        Description = "Created",
-                        Timestamp = DateTime.Now
-                    }
-                }
-            };
-
-
-
-            return batch;
+            return _data.Where(b => b.State == BatchState.Running).FirstOrDefault();
         }
     }
 }

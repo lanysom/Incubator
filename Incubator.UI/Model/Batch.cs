@@ -6,6 +6,7 @@ namespace Incubator.UI.Model
 {
     public class Batch
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public Program Program { get; set; }
         public IList<Event> Events { get; set; }
@@ -19,10 +20,10 @@ namespace Incubator.UI.Model
 
     public enum BatchState
     {
-        New = 0x000,
-        Ready = 0x001,
-        Running = 0x010,
-        Finished = 0x011,
-        Error = 0x111,
+        New = 0,
+        Ready = 1,
+        Running = 2,
+        Finished = 3,
+        Error = 4,
     }
 }

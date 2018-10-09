@@ -1,13 +1,26 @@
 [
   {
+    "Id": 1,
     "Name": "Batch 42",
+    "Program": null,
+    "Events": [
+      {
+        "Timestamp": "2018-10-09T13:58:18.0102482+02:00",
+        "Description": "Created"
+      }
+    ],
+    "State": 0
+  },
+  {
+    "Id": 3,
+    "Name": "Kenducky Fried",
     "Program": {
       "Name": "Test",
-      "Description": "Program for testing incubator",
+      "Description": "Program for hatching ducks",
       "Steps": [
         {
           "Name": "Setup",
-          "Duration": "00.00:05:00",
+          "Duration": "28.00:00:00",
           "Temperature": 37.8,
           "Humidity": 60.0,
           "Steps": null,
@@ -21,9 +34,10 @@
         "Description": "Created"
       }
     ],
-    "State": 0
+    "State": 1
   },
   {
+    "Id": 2,
     "Name": "Spring Batch",
     "Program": {
       "Name": "Chicken",
@@ -43,7 +57,7 @@
           "Temperature": 37.8,
           "Humidity": 80.0,
           "Steps": null,
-          "Repeats":  0
+          "Repeats": 0
         }
       ]
     },
@@ -53,6 +67,6 @@
         "Description": "Created"
       }
     ],
-    "State": 0
+    "State": 2
   }
 ]
